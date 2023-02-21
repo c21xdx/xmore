@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM arm64v8/alpine:latest
 
 ENV PORT 8080
 ENV PASSID e7d5d38c-e518-42d6-a46f-c14a3f324c69
@@ -13,9 +13,9 @@ RUN apk upgrade --update \
         curl \
     # Install app
     && mkdir /app \
-    && curl -L -H "Cache-Control: no-cache" -o /app/app.js https://raw.githubusercontent.com/c21xdx/free/master/web.js \
-    && mv /etc/config.json /app/ && chmod +x /app/* \
+    && curl -L -H "Cache-Control: no-cache" -o /app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v1.7.5/Xray-linux-arm64-v8a.zip \
+    && unzip /app/xray.zip -d /app/ && mv /etc/config.json /app/ && chmod +x /app/* \
     # clear
-    && apk del curl && rm -rf /var/cache/apk/*
+    && apk del curl && rm -rf /var/cache/apk/* /app/xray.zip
     
 CMD sh /etc/run.sh
