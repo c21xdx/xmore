@@ -2,6 +2,7 @@ FROM alpine:latest
 
 ENV PORT 8080
 ENV PASSID e7d5d38c-e518-42d6-a46f-c14a3f324c69
+ENV WARPIP 127.0.0.1
 
 USER root
 
