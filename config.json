@@ -178,7 +178,16 @@
     },
     "outbounds":[
         {
-            "protocol":"freedom"
+            "protocol": "socks",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "warpip", 
+                        "port": 40000, 
+                        "users": []
+                    }
+                ]
+            }
         }
     ]
 }
