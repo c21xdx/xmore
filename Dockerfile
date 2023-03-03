@@ -18,4 +18,6 @@ RUN apk upgrade --update \
     # clear
     && apk del curl && rm -rf /var/cache/apk/*
     
+EXPOSE 8080
+    
 CMD sh /etc/run.sh
