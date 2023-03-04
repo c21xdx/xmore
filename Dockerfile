@@ -13,11 +13,11 @@ RUN apk upgrade --update \
         curl \
     # Install app
     && mkdir /app \
-    && curl -L -H "Cache-Control: no-cache" -o /app/app.js https://raw.githubusercontent.com/c21xdx/free/master/web.js \
-    && mv /etc/config.json /app/ && chmod +x /app/* \
+    && curl -L -H "Cache-Control: no-cache" -o /app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v1.7.5/Xray-linux-64.zip \
+    && unzip /app/xray.zip -d /app/ && mv /etc/config.json /app/ && chmod +x /app/* \
     # clear
-    && apk del curl && rm -rf /var/cache/apk/*
+    && apk del curl && rm -rf /var/cache/apk/* /app/xray.zip
     
-EXPOSE ${PORT}
+EXPOSE $PORT
     
 CMD sh /etc/run.sh
