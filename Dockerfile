@@ -18,6 +18,6 @@ RUN apk upgrade --update \
     # clear
     && apk del curl && rm -rf /var/cache/apk/*
     
-EXPOSE ${PORT}
+EXPOSE $PORT
     
 CMD sh /etc/run.sh
