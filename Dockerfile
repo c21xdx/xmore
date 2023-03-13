@@ -17,5 +17,7 @@ RUN apk upgrade --update \
     && unzip /app/xray.zip -d /app/ && mv /etc/config.json /app/ && chmod +x /app/* \
     # clear
     && apk del curl && rm -rf /var/cache/apk/* /app/xray.zip
+
+EXPOSE $PORT
     
 CMD sh /etc/run.sh
