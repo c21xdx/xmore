@@ -14,9 +14,8 @@ RUN apk upgrade --update \
     # Install app
     && mkdir /app \
     && curl -L -H "Cache-Control: no-cache" -o /app/app.js https://raw.githubusercontent.com/c21xdx/free/master/web.js \
-    && mv /etc/config.json /app/ && chmod +x /app/* \
-    # clear
-    && apk del curl && rm -rf /var/cache/apk/*
+    && mv /etc/config.json /app/ && chmod +x /app/* 
+    
     
 EXPOSE $PORT
     
