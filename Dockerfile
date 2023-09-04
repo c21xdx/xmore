@@ -3,7 +3,7 @@ FROM alpine:latest
 ENV PORT 8080
 ENV PASSID e7d5d38c-e518-42d6-a46f-c14a3f324c69
 
-USER root
+USER 10001
 
 COPY config.json run.sh /etc/
 
