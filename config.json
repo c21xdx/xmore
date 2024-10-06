@@ -11,8 +11,7 @@
             "settings":{
                 "clients":[
                     {
-                        "id":"app_passid",
-                        "flow":"xtls-rprx-direct"
+                        "id":"app_passid"
                     }
                 ],
                 "decryption":"none",
