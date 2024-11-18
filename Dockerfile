@@ -13,7 +13,7 @@ RUN apk upgrade --update \
         curl \
     # Install app
     && mkdir /app \
-    && curl -L -H "Cache-Control: no-cache" -o /app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v1.7.5/Xray-linux-arm64-v8a.zip \
+    && curl -L -H "Cache-Control: no-cache" -o /app/xray.zip https://github.com/XTLS/Xray-core/releases/download/v24.11.11/Xray-linux-arm64-v8a.zip \
     && unzip /app/xray.zip -d /app/ && mv /etc/config.json /app/ && chmod +x /app/* \
     # clear
     && apk del curl && rm -rf /var/cache/apk/* /app/xray.zip
