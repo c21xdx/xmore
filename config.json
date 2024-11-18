@@ -21,7 +21,7 @@
                         "dest":3001
                     },
                     {
-                        "path":"/vl2ws",
+                        "path":"/xhttp",
                         "dest":3002
                     },
                     {
@@ -73,10 +73,10 @@
                 "decryption":"none"
             },
             "streamSettings":{
-                "network":"ws",
+                "network":"xhttp",
                 "security":"none",
-                "wsSettings":{
-                    "path":"/vl2ws"
+                "xhttpSettings":{
+                    "path":"/vl2xh"
                 }
             },
             "sniffing":{
