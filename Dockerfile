@@ -1,4 +1,4 @@
-FROM arm64v8/alpine:latest
+FROM --platform=linux/arm64 arm64v8/alpine:latest
 
 ENV PORT 8080
 ENV PASSID e7d5d38c-e518-42d6-a46f-c14a3f324c69
