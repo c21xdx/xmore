@@ -1,183 +1,181 @@
 {
-    "log":{
-        "access":"/dev/null",
-        "error":"/dev/null",
-        "loglevel":"debug"
-    },
-    "inbounds":[
-        {
-            "port":8080,
-            "protocol":"vless",
-            "settings":{
-                "clients":[
-                    {
-                        "id":"app_passid"
-                    }
-                ],
-                "decryption":"none",
-                "fallbacks":[
-                    {
-                        "dest":3001
-                    },
-                    {
-                        "path":"/vl2xh",
-                        "dest":3002
-                    },
-                    {
-                        "path":"/vm2ws",
-                        "dest":3003
-                    },
-                    {
-                        "path":"/tj2ws",
-                        "dest":3004
-                    },
-                    {
-                        "path":"/ss2ws",
-                        "dest":3005
-                    }
-                ]
-            },
-            "streamSettings":{
-                "network":"tcp"
-            }
-        },
-        {
-            "port":3001,
-            "listen":"127.0.0.1",
-            "protocol":"vless",
-            "settings":{
-                "clients":[
-                    {
-                        "id":"app_passid"
-                    }
-                ],
-                "decryption":"none"
-            },
-            "streamSettings":{
-                "network":"ws",
-                "security":"none"
-            }
-        },
-        {
-            "port":3002,
-            "listen":"127.0.0.1",
-            "protocol":"vless",
-            "settings":{
-                "clients":[
-                    {
-                        "id":"app_passid",
-                        "level":0
-                    }
-                ],
-                "decryption":"none"
-            },
-            "streamSettings":{
-                "network":"xhttp",
-                "security":"none",
-                "xhttpSettings":{
-                    "path":"/vl2xh"
-                }
-            },
-            "sniffing":{
-                "enabled":true,
-                "destOverride":[
-                    "http",
-                    "tls"
-                ],
-                "metadataOnly":false
-            }
-        },
-        {
-            "port":3003,
-            "listen":"127.0.0.1",
-            "protocol":"vmess",
-            "settings":{
-                "clients":[
-                    {
-                        "id":"app_passid",
-                        "alterId":0
-                    }
-                ]
-            },
-            "streamSettings":{
-                "network":"ws",
-                "wsSettings":{
-                    "path":"/vm2ws"
-                }
-            },
-            "sniffing":{
-                "enabled":true,
-                "destOverride":[
-                    "http",
-                    "tls"
-                ],
-                "metadataOnly":false
-            }
-        },
-        {
-            "port":3004,
-            "listen":"127.0.0.1",
-            "protocol":"trojan",
-            "settings":{
-                "clients":[
-                    {
-                        "password":"app_passid"
-                    }
-                ]
-            },
-            "streamSettings":{
-                "network":"ws",
-                "security":"none",
-                "wsSettings":{
-                    "path":"/tj2ws"
-                }
-            },
-            "sniffing":{
-                "enabled":true,
-                "destOverride":[
-                    "http",
-                    "tls"
-                ],
-                "metadataOnly":false
-            }
-        },
-        {
-            "port":3005,
-            "listen":"127.0.0.1",
-            "protocol":"shadowsocks",
-            "settings":{
-                "clients":[
-                    {
-                        "method":"chacha20-ietf-poly1305",
-                        "password":"app_passid"
-                    }
-                ],
-                "decryption":"none"
-            },
-            "streamSettings":{
-                "network":"ws",
-                "wsSettings":{
-                    "path":"/ss2ws"
-                }
-            },
-            "sniffing":{
-                "enabled":true,
-                "destOverride":[
-                    "http",
-                    "tls"
-                ],
-                "metadataOnly":false
-            }
-        }
-    ],
-    "dns":{
-        "servers":[
-            "https+local://8.8.8.8/dns-query"
-        ]
-    },
-    "outbounds":[
-        {
-            "protocol":"freedom"
-        }
-    ]
+	"log": {
+		"access": "/dev/null",
+		"error": "/dev/null",
+		"loglevel": "debug"
+	},
+	"inbounds": [{
+			"port": 8080,
+			"protocol": "vless",
+			"settings": {
+				"clients": [{
+					"id": "app_passid"
+				}],
+				"decryption": "none",
+				"fallbacks": [{
+						"dest": 3001
+					},
+					{
+						"path": "/vl2xh",
+						"dest": 3002
+					},
+					{
+						"path": "/vm2ws",
+						"dest": 3003
+					},
+					{
+						"path": "/tj2ws",
+						"dest": 3004
+					},
+					{
+						"path": "/ss2ws",
+						"dest": 3005
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "tcp"
+			}
+		},
+		{
+			"port": 3001,
+			"listen": "127.0.0.1",
+			"protocol": "vless",
+			"settings": {
+				"clients": [{
+					"id": "app_passid"
+				}],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"security": "none"
+			}
+		},
+		{
+			"port": 3002,
+			"listen": "127.0.0.1",
+			"protocol": "vless",
+			"settings": {
+				"clients": [{
+					"id": "app_passid",
+					"level": 0
+				}],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "xhttp",
+				"security": "none",
+				"xhttpSettings": {
+					"path": "/vl2xh"
+				}
+			},
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls"
+				],
+				"metadataOnly": false
+			}
+		},
+		{
+			"port": 3003,
+			"listen": "127.0.0.1",
+			"protocol": "vmess",
+			"settings": {
+				"clients": [{
+					"id": "app_passid",
+					"alterId": 0
+				}]
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "/vm2ws"
+				}
+			},
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls"
+				],
+				"metadataOnly": false
+			}
+		},
+		{
+			"port": 3004,
+			"listen": "127.0.0.1",
+			"protocol": "trojan",
+			"settings": {
+				"clients": [{
+					"password": "app_passid"
+				}]
+			},
+			"streamSettings": {
+				"network": "ws",
+				"security": "none",
+				"wsSettings": {
+					"path": "/tj2ws"
+				}
+			},
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls"
+				],
+				"metadataOnly": false
+			}
+		},
+		{
+			"port": 3005,
+			"listen": "127.0.0.1",
+			"protocol": "shadowsocks",
+			"settings": {
+				"clients": [{
+					"method": "chacha20-ietf-poly1305",
+					"password": "app_passid"
+				}],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "/ss2ws"
+				}
+			},
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls"
+				],
+				"metadataOnly": false
+			}
+		}
+	],
+	"routing": {
+		"rules": [{
+			"type": "field",
+			"protocol": [
+				"bittorrent"
+			],
+			"outboundTag": "block"
+		}]
+	},
+	"dns": {
+		"servers": [
+			"https+local://8.8.8.8/dns-query"
+		]
+	},
+	"outbounds": [{
+			"protocol": "freedom"
+		},
+		{
+			"protocol": "blackhole",
+			"tag": "block"
+		}
+	]
 }
