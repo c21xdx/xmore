@@ -16,20 +16,12 @@
 						"dest": 3001
 					},
 					{
-						"path": "/vl2xh",
+						"path": "/vl2ws",
 						"dest": 3002
 					},
 					{
 						"path": "/vm2ws",
 						"dest": 3003
-					},
-					{
-						"path": "/tj2ws",
-						"dest": 3004
-					},
-					{
-						"path": "/ss2ws",
-						"dest": 3005
 					}
 				]
 			},
@@ -48,7 +40,7 @@
 				"decryption": "none"
 			},
 			"streamSettings": {
-				"network": "ws",
+				"network": "xhttp",
 				"security": "none"
 			}
 		},
@@ -64,10 +56,10 @@
 				"decryption": "none"
 			},
 			"streamSettings": {
-				"network": "xhttp",
+				"network": "ws",
 				"security": "none",
-				"xhttpSettings": {
-					"path": "/vl2xh"
+				"wsSettings": {
+					"path": "/vl2ws"
 				}
 			},
 			"sniffing": {
@@ -93,57 +85,6 @@
 				"network": "ws",
 				"wsSettings": {
 					"path": "/vm2ws"
-				}
-			},
-			"sniffing": {
-				"enabled": true,
-				"destOverride": [
-					"http",
-					"tls"
-				],
-				"metadataOnly": false
-			}
-		},
-		{
-			"port": 3004,
-			"listen": "127.0.0.1",
-			"protocol": "trojan",
-			"settings": {
-				"clients": [{
-					"password": "app_passid"
-				}]
-			},
-			"streamSettings": {
-				"network": "ws",
-				"security": "none",
-				"wsSettings": {
-					"path": "/tj2ws"
-				}
-			},
-			"sniffing": {
-				"enabled": true,
-				"destOverride": [
-					"http",
-					"tls"
-				],
-				"metadataOnly": false
-			}
-		},
-		{
-			"port": 3005,
-			"listen": "127.0.0.1",
-			"protocol": "shadowsocks",
-			"settings": {
-				"clients": [{
-					"method": "chacha20-ietf-poly1305",
-					"password": "app_passid"
-				}],
-				"decryption": "none"
-			},
-			"streamSettings": {
-				"network": "ws",
-				"wsSettings": {
-					"path": "/ss2ws"
 				}
 			},
 			"sniffing": {
