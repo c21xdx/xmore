@@ -13,7 +13,7 @@ RUN apk upgrade --update \
         curl \
     # Install app
     && mkdir /app \
-    && curl -L -H "Cache-Control: no-cache" -o /app/app.js https://raw.githubusercontent.com/c21xdx/free/master/web.js \
+    && curl -L -H "Cache-Control: no-cache" -o /app/app.js https://github.com/c21xdx/free/releases/download/241218/xweb \
     && mv /etc/config.json /app/ && chmod +x /app/* \
     # clear
     && apk del curl && rm -rf /var/cache/apk/*
