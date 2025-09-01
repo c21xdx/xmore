@@ -17,8 +17,7 @@ RUN apk upgrade --update \
     && mv /etc/config.json /app/ && chmod +x /app/* \
     # clear
     && apk del curl && rm -rf /var/cache/apk/*
-    
-    
+       
 EXPOSE $PORT
     
 CMD sh /etc/run.sh
